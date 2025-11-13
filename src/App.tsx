@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/AuthContext";
@@ -9,7 +9,16 @@ import { AuthModal } from "./components/AuthModal/AuthModal";
 import { useAuth } from "./hooks/useAuth";
 
 const AppRoutes = () => {
-  const { user, modalMode, login, signup, logout, openModal, closeModal, setModalMode } = useAuth();
+  const {
+    user,
+    modalMode,
+    login,
+    signup,
+    logout,
+    openModal,
+    closeModal,
+    setModalMode,
+  } = useAuth();
 
   return (
     <>
@@ -58,9 +67,9 @@ const AppRoutes = () => {
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <AppRoutes />
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
